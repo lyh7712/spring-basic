@@ -1,15 +1,19 @@
 package lyh7712.springbasic.order;
 
 import lyh7712.springbasic.discount.DiscountPolicy;
-import lyh7712.springbasic.discount.FixDiscountPolicy;
 import lyh7712.springbasic.member.Member;
-import lyh7712.springbasic.member.MemberMemoryRepository;
 import lyh7712.springbasic.member.MemberRepository;
 
 public class OrderServiceImpl implements OrderService {
 
-    private final MemberRepository repository = new MemberMemoryRepository();
-    private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
+    private final MemberRepository repository;
+    private final DiscountPolicy discountPolicy;
+
+
+    public OrderServiceImpl(MemberRepository repository, DiscountPolicy discountPolicy) {
+        this.repository = repository;
+        this.discountPolicy = discountPolicy;
+    }
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {

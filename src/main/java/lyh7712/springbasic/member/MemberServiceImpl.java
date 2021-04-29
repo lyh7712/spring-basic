@@ -2,7 +2,11 @@ package lyh7712.springbasic.member;
 
 public class MemberServiceImpl implements MemberService {
 
-    private final MemberRepository repository = new MemberMemoryRepository();
+    private final MemberRepository repository;
+
+    public MemberServiceImpl(MemberRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
     public void join(Member member) {
