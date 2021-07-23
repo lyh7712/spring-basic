@@ -1,10 +1,22 @@
-package lyh7712.springbasic.user.config;
+package lyh7712.springbasic.user.config.user;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class User {
 
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String email;
+
     private String password;
+
+    public User() {
+    }
 
     public User(Long id, String email, String password) {
         this.id = id;

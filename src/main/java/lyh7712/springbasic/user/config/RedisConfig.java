@@ -1,57 +1,41 @@
 package lyh7712.springbasic.user.config;
 
-import java.time.Duration;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
-import org.springframework.data.redis.serializer.StringRedisSerializer;
-import redis.clients.jedis.JedisPool;
-import redis.clients.jedis.JedisPoolConfig;
-
+//import org.springframework.data.redis.connection.RedisConnectionFactory;
+//import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
+//import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
+//import org.springframework.data.redis.core.RedisTemplate;
+//import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
+//import org.springframework.data.redis.serializer.StringRedisSerializer;
+//import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 
 @Configuration
 public class RedisConfig {
 
-//    @Bean
-//    public JedisPool redisConnectionFactory() {
+//    private ObjectMapper objectMapper;
 //
-//        JedisPool pool = new JedisPool(jedisPoolConfig(), "127.0.0.1", 6379);
-//        return pool;
+//    public RedisConfig(ObjectMapper objectMapper) {
+//        this.objectMapper = objectMapper;
 //    }
-
-    @Bean
-    public LettuceConnectionFactory lettuceConnectionFactory() {
-        return new LettuceConnectionFactory("127.0.0.1", 6379);
-    }
-
-
-    @Bean
-    public RedisTemplate<String, User> redisTemplate() {
-        RedisTemplate<String, User> redisTemplate = new RedisTemplate<>();
-        redisTemplate.setConnectionFactory(lettuceConnectionFactory());
-        redisTemplate.setKeySerializer(new StringRedisSerializer());
-        redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(User.class));
-        return redisTemplate;
-    }
-
-
-//    private JedisPoolConfig jedisPoolConfig() {
-//        JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
 //
-//        jedisPoolConfig.setMaxTotal(128);
-//        jedisPoolConfig.setMaxIdle(128);
-//        jedisPoolConfig.setMinIdle(36);
-//        jedisPoolConfig.setTestOnBorrow(true);
-//        jedisPoolConfig.setTestOnReturn(true);
-//        jedisPoolConfig.setTestWhileIdle(true);
-//        jedisPoolConfig.setMinEvictableIdleTimeMillis(Duration.ofSeconds(60).toMillis());
-//        jedisPoolConfig.setTimeBetweenEvictionRunsMillis(Duration.ofSeconds(30).toMillis());
-//        jedisPoolConfig.setNumTestsPerEvictionRun(3);
-//        jedisPoolConfig.setBlockWhenExhausted(true);
+//    @Bean public RedisConnectionFactory lettuceConnectionFactory() {
+//        RedisStandaloneConfiguration standaloneConfiguration = new RedisStandaloneConfiguration("127.0.0.1", 6379);
+//        return new LettuceConnectionFactory(standaloneConfiguration);
+//    }
 //
-//        return jedisPoolConfig;
+//    @Bean
+//    public RedisTemplate<String, Object> redisTemplate() {
+//        RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
+//
+//        redisTemplate.setConnectionFactory(lettuceConnectionFactory());
+//        redisTemplate.setEnableTransactionSupport(true);
+//        redisTemplate.setKeySerializer(new StringRedisSerializer());
+//        redisTemplate.setValueSerializer(new GenericJackson2JsonRedisSerializer(objectMapper));
+//
+//        return redisTemplate;
 //    }
 
 }
