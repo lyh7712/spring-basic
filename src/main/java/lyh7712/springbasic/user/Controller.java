@@ -1,5 +1,7 @@
 package lyh7712.springbasic.user;
 
+import java.util.ArrayList;
+import java.util.List;
 import lyh7712.springbasic.user.domain.Contract;
 import lyh7712.springbasic.user.repository.ContractRepository;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,5 +26,15 @@ public class Controller {
     public void getAllContract() {
         System.out.println(repository.findAll());
     }
-}
 
+    @GetMapping("/test")
+    public List getTest() {
+        List list = new ArrayList();
+        list.add("A");
+        list.add("B");
+        list.add("C");
+        list.add("D");
+        list.add("E");
+        return list;
+    }
+}

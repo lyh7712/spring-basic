@@ -38,4 +38,15 @@ public class Contract {
     public String getGetCommissionCutting() {
         return getCommissionCutting;
     }
+
+    @Override
+    public String toString() {
+        return "Contract{" +
+                "id=" + id +
+                ", company='" + company + '\'' +
+                ", commission=" + commission +
+                ", commissionType='" + commissionType + '\'' +
+                ", getCommissionCutting='" + getCommissionCutting + '\'' +
+                '}';
+    }
 }
