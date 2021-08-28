@@ -1,12 +1,15 @@
 package lyh7712.springbasic.user.serialize;
 
-import java.io.Serializable;
+import lyh7712.springbasic.user.test.Money;
 
-public class Member implements Serializable {
+public class Member extends Money {
 
     private String email;
     private String name;
     private int age;
+
+    public Member() {
+    }
 
     public Member(String email, String name, int age) {
         this.email = email;
@@ -14,5 +17,23 @@ public class Member implements Serializable {
         this.age = age;
     }
 
+    public static void main(String[] args) {
+        Member member = new Member();
+        System.out.println(member.number);
+    }
+
+
+    public void publicMethod() {
+
+    }
+    private void privateMethod() {
+
+    }
+    protected void protectedMethod() {
+
+    }
+    void defaultMethod() {
+
+    }
 
 }

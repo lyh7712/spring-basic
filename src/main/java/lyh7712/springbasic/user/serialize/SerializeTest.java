@@ -6,6 +6,5 @@ public class SerializeTest {
 
         Member member = new Member("mmj2rv9", "이영", 22);
 
-        
     }
 }
